@@ -32,6 +32,24 @@ class Artist
       return orders
     end
 
+    def update()
+      sql = "
+      UPDATE artists SET (
+        name
+        ) =
+        (
+          $1
+        )
+        WHERE id = $2"
+        values = [@name, @id]
+        db = SqlRunner.run(sql, values)
+      end
+
+      def delete()
+        sql = "DELETE FROM artists WHERE id = $1"
+        values = [@id]
+        db = SqlRunner.run(sql, values)
+      end
 
     # CLASS METHODS
 

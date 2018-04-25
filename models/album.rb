@@ -30,6 +30,27 @@ class Album
       @id = result[0]["id"].to_i
     end
 
+    def update()
+      sql = "
+      UPDATE albums SET (
+        name,
+        genre,
+        artist_id
+        ) =
+        (
+          $1, $2, $3
+        )
+        WHERE id = $4"
+        values = [@name, @genre, @artist_id, @id]
+        db = SqlRunner.run(sql, values)
+      end
+
+      def delete()
+        sql = "DELETE FROM albums WHERE id = $1"
+        values = [@id]
+        db = SqlRunner.run(sql, values)
+      end
+
     # CLASS METHODS
 
     def self.all()

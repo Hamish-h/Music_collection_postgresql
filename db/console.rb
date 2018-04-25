@@ -6,12 +6,12 @@ require_relative("../db/sql_runner")
 artist1 = Artist.new({
   'name' => 'Hamish'
   })
-#artist1.save()
+artist1.save()
 
 artist2 = Artist.new({
   'name' => 'Luis'
   })
-#artist2.save()
+artist2.save()
 
 album1 = Album.new({
   'artist_id' => artist1.id,
@@ -19,7 +19,7 @@ album1 = Album.new({
   'genre' => 'rock'
   })
 
-#  album1.save()
+ album1.save()
 
   album2 = Album.new({
     'artist_id' => artist1.id,
@@ -27,7 +27,7 @@ album1 = Album.new({
     'genre' => 'rock'
     })
 
-  #  album2.save()
-
+   album2.save()
+  album1.delete()
 binding.pry
 nil
