@@ -39,5 +39,13 @@ class Album
       return albums_array
     end
 
+    def self.find(id)
+      sql = "SELECT * FROM albums WHERE artist_id = $1"
+      values = [id]
+      results = SqlRunner.run(sql, values)
+      album_hash = results.first
+      order = Album.new(album_hash)
+      return order
+    end
 
 end
