@@ -24,4 +24,16 @@ class Artist
       @id = result[0]["id"].to_i
     end
 
+
+
+
+    # CLASS METHODS
+
+    def self.all()
+      sql = "SELECT * FROM artists"
+      artists = SqlRunner.run(sql)
+      artists_array = artists.map { |artist| Artist.new(artist)}
+      return artists_array
+    end
+
   end
